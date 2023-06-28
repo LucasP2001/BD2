@@ -2,6 +2,12 @@
 // Linha de conexão com o MongoDB
 $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
+
+$dadosJson = $_POST['data'];
+$data = json_decode($dadosJson, true);
+
+//coleção
+$collection =  $data['collection'];
 // Definir a coleção
 $collection = 'Alunos';
 

@@ -10,8 +10,8 @@ $data = json_decode($dadosJson, true);
 //coleção
 $collection =  $data['collection'];
 
-//id do aluno que eu quero
-$filtro = ["aluno"=>"649999dd075915e4c90fca77"];
+//id do aluno que eu quero "aluno"=>"649999dd075915e4c90fca77"
+$filtro = [];
 
 
 // Defina a consulta para obter os arquivos desejados
@@ -31,7 +31,12 @@ $files = [];
 
 // Itere sobre o resultado e adicione os dados dos arquivos ao array
 foreach ($resultSet as $document) {
+    
+    $numero_id = substr($document->_id, 0, 24);
+
+
     $file = [
+        'id'=> $numero_id,
         'nome' => $document->nome,
         'tamanho' => $document->tamanho,
         // Adicione outros campos do documento conforme necessário

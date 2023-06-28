@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <script src="pluguins/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="preset.css">
+
 </head>
 
 <body>
@@ -15,6 +15,6 @@
     <div id="ind"></div>
 </div>
 
-<script src="js.js"></script>
+<script src="../backend/requests/getArquivos.js"></script>
 
 </body>

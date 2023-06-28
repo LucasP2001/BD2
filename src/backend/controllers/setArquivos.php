@@ -2,7 +2,7 @@
 // Linha de conexão com o MongoDB
 $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
-function inserirArquivo($nomeArquivo, $caminhoArquivo) {
+function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo) {
     global $mongo;
 
     // Ler o conteúdo do arquivo
@@ -15,6 +15,7 @@ function inserirArquivo($nomeArquivo, $caminhoArquivo) {
     $documento = [
         '_id' => new MongoDB\BSON\ObjectID(),
         'nome' => $nomeArquivo,
+        'categoria' =>$categoriaArquivo,
         'tamanho' => $tamanhoArquivo,
         'arquivo' => new MongoDB\BSON\Binary($conteudoArquivo, MongoDB\BSON\Binary::TYPE_GENERIC)
     ];
@@ -37,8 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
         $nomeArquivo = $_FILES['arquivo']['name'];
         $caminhoArquivo = $_FILES['arquivo']['tmp_name'];
+        $categoriaArquivo = $_POST["categoria"];
 
-        inserirArquivo($nomeArquivo, $caminhoArquivo);
+        inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo);
     }
 }
 ?>
