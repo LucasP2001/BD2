@@ -15,7 +15,7 @@ function pesquisarDocumento($filtro) {
     $result = $mongo->executeQuery('TrabalhoBD2.' . $collection, $query);
 
     // Obter o primeiro documento encontrado
-    $document = $result->toArray()[0];
+    $document = $result->toArray();
 
     if ($document) {
         var_dump($document);
