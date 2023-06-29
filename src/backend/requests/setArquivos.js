@@ -3,6 +3,7 @@ $(document).ready(function() {
         e.preventDefault();
         
         var formData = new FormData(this);
+        
 
         $.ajax({
             url: '../backend/controllers/setArquivos.php',
