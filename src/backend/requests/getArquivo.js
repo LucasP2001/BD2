@@ -12,7 +12,7 @@ function getInfoArquivos() {
     var dadosJson = JSON.stringify(dados);
 
     $.ajax({
-        url: '../backend/controllers/find.php',
+        url: '../backend/controllers/getArquivos.php',
         method: 'post',
         data: {
             data: dadosJson

@@ -15,6 +15,6 @@
     <div id="ind"></div>
 </div>
 
-<script src="../backend/requests/getArquivos.js"></script>
+<script src="../backend/requests/getArquivo.js"></script>
 
 </body>
