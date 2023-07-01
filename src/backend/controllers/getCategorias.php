@@ -1,6 +1,9 @@
 
 
 <?php
+session_start();
+$userId = $_SESSION['user_id']; 
+
 $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
 
@@ -9,7 +12,7 @@ $data = json_decode($dadosJson, true);
 
 //coleção
 $collection =  $data['collection'];
-$id_user =  $data['id_user'];
+$id_user =  $userId;
 //id do aluno que eu quero "aluno"=>"649999dd075915e4c90fca77"
 $filtro = ['usuario'=> $id_user];
 

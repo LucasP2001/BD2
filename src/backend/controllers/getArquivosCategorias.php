@@ -9,9 +9,10 @@ $data = json_decode($dadosJson, true);
 
 //coleção
 $collection =  $data['collection'];
+$id_categoria =  $data['id_categoria'];
 
 //id do aluno que eu quero "aluno"=>"649999dd075915e4c90fca77"
-$filtro = [];
+$filtro = ['categoria'=>$id_categoria];
 
 
 // Defina a consulta para obter os arquivos desejados

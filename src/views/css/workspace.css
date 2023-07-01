@@ -106,6 +106,26 @@
     gap: 1rem;
 }
 
+.pdf-content input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.busca{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.busca button{
+    width: 40px;
+    background-color:  #1b61d1;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+}
+
 .pdf-list{
     width: 100%;
     flex-wrap: wrap;
@@ -131,6 +151,16 @@
 }
 .pdf-icon{
     font-size: 4rem;
+}
+
+.pdf-action button{
+    width: 30px;
+    height: 30px;
+    background-color:  #4287f5;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .data{

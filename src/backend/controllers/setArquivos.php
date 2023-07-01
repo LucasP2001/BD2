@@ -1,9 +1,11 @@
 <?php
+session_start();
+$userId = $_SESSION['user_id']; 
 // Linha de conexão com o MongoDB
 $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
-function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo) {
-    global $mongo;
+function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo,$dataUpload) {
+    global $mongo, $userId;
 
     // Ler o conteúdo do arquivo
     $conteudoArquivo = file_get_contents($caminhoArquivo);
@@ -17,8 +19,10 @@ function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo) {
         'nome' => $nomeArquivo,
         'categoria' =>$categoriaArquivo,
         'tamanho' => $tamanhoArquivo,
-        'arquivo' => new MongoDB\BSON\Binary($conteudoArquivo, MongoDB\BSON\Binary::TYPE_GENERIC)
-    ];
+        'data' => $dataUpload,
+        'arquivo' => new MongoDB\BSON\Binary($conteudoArquivo, MongoDB\BSON\Binary::TYPE_GENERIC),
+        'usuario' => $userId
+    ]; 
 
     // Definir a operação de inserção
     $insercao = new MongoDB\Driver\BulkWrite;
@@ -36,11 +40,12 @@ function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
-        $nomeArquivo = $_FILES['arquivo']['name'];
+        $nomeArquivo = $_POST['nome'];
         $caminhoArquivo = $_FILES['arquivo']['tmp_name'];
         $categoriaArquivo = $_POST["categoria"];
-
-        inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo);
+        date_default_timezone_set('America/Manaus');
+        $dataUpload = date('Y-m-d');
+        inserirArquivo($nomeArquivo, $caminhoArquivo, $categoriaArquivo, $dataUpload);
     }
 }
 ?>

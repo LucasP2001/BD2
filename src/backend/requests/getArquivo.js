@@ -10,6 +10,7 @@ function getInfoArquivos() {
     }   
 
     var dadosJson = JSON.stringify(dados);
+    $('#list-pdf').empty();
 
     $.ajax({
         url: '../backend/controllers/getArquivos.php',
@@ -23,13 +24,22 @@ function getInfoArquivos() {
 
 
             var length = response.length;
+           
 
            for (var i = 0; i < length; i++) {
                 
 
-                $('#ind').append(''+
-                '<p>Nome do PDF: '+response[i].nome+'</p>' +
-                '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
+                $('#list-pdf').append(''+
+                 '<div class="pdf-card">'+
+                 '<i class="bx bxs-file-pdf pdf-icon"></i>'+
+                 '<p class="pdf_title">'+response[i].nome+'</p>'+
+                 ' <p class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
+                 '<div class="pdf-action">'+
+                 '<button onclick="verPdf('+response[i].id+')"><i class="bx bx-book-open"></i></button>'+
+                 '<button onclick=""><i class="bx bxs-edit"></i></button>'+
+                 '<button><i class="bx bxs-trash-alt"></i></button>'+
+                 '</div>'+
+                 ' </div>'+
                 '</div>');
            }
 
@@ -39,7 +49,9 @@ function getInfoArquivos() {
 
 }
 
-
+function verPdf(_id){
+    window.location.href= "../backend/controllers/visualizar_pdf.php?id="+_id;
+}
 
 
 
@@ -73,4 +85,4 @@ function updateArquivos(idarquivo,nomenovo) {
 
 
 
-getInfoArquivos()
+//getInfoArquivos()

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+//session_start();
+//$userId = $_SESSION['user_id'];  
+//$userName = $_SESSION['user_name'];  
+//$Letra = substr($userName, 0, 1);
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +21,13 @@
 <body>
     <?php include "components/form-add-pdf.php" ?>
     <?php include "components/form-add-categoria.php" ?>
+    <?php include "components/form-edit-pdf.php" ?>
     <div class="container">
         <div class="menu-lateral">
             <div class="user-info">
-                <p class="user-perfil">D</p>
-                <p>Bem Vindo, Djhérondhy</p>
+                <p class="user-perfil"><?php echo $Letra; ?></p>
+                
+                <p>Bem Vindo, <?php echo $userName; ?></p>
             </div>
             <div class="button">
                 <button id="add-categoria">
@@ -32,15 +41,17 @@
         <div class="content">
             <div class="categoria-header">
                 <p class="title">Categorias</p>
-                <div class="cat-label">
-                    <label for="" class="active">Todos</label>
-                    <label for="">Exemplo 1</label>
-                    <label for="">Exemplo 2</label>
+                <div class="cat-label" id="categorias-label">
+                    <label for=""class="active">Todos</label>
                 </div>
             </div>
             <div class="pdf-content">
                 <p class="title">Lista de PDF</p>
-                <div class="pdf-list">
+                <div class="busca">
+                    <input type="text" placeholder="Digite um titulo para buscar">
+                    <button><i class='bx bx-search'></i></button>
+                </div>
+                <div class="pdf-list" id="list-pdf">
                     <div class="pdf-card">
                         <i class="bx bxs-file-pdf pdf-icon"></i>
                         <p class="pdf_title">Banco de Dados PDF</p>
@@ -55,6 +66,11 @@
                         <i class="bx bxs-file-pdf pdf-icon"></i>
                         <p class="pdf_title">Senhor dos Anéis</p>
                         <p class="data"><i class="bx bx-calendar"></i>2023-06-30</p>
+                        <div class="pdf-action">
+                            <button onclick="window.location.href='login.php'"><i class="bx bx-book-open"></i></button>
+                            <button onclick=""><i class="bx bxs-edit"></i></button>
+                            <button><i class="bx bxs-trash-alt"></i></button>
+                        </div>
                     </div>
 
 
@@ -62,6 +78,8 @@
             </div>
         </div>
     </div>
+    <script src="../backend/requests/getArquivo.js"></script>
+    
 
     <script>
         $('#add-categoria').click(function () {

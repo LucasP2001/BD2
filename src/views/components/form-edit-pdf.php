@@ -1,5 +1,5 @@
 <style>
-    .categoria-container {
+    .edit-container {
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -71,24 +71,51 @@
         background: 0;
     }
 </style>
-<div class="categoria-container">
+
+<script src="../backend/requests/setArquivos.js"></script>  
+<script src="../backend/requests/getCategorias.js"></script>    
+
+<div class="edit-container">
     <div class="form-content">
-        <button class="close-btn" id="close-categoria"> <i class='bx bx-x' ></i></button>
-        <p>Adicionar Categoria</p>
-        <form action="" id="form-add-categoria"> 
-            <input type="text" name="nome" placeholder="Digite o titulo da Categoria">
-            <input type="submit" value="Salvar Categoria">
+        <button class="close-btn" id="close-edit"> <i class='bx bx-x' ></i></button>
+        <p>Editar PDF</p>
+        
+        
+        <form method="POST" id="form-edit-pdf" enctype="multipart/form-data"> 
+           <input type="text" name="nome"  id="nome-pdf"placeholder="Digite o titulo do PDF">
+            <label for="">Categoria</label>
+            <select name="categoria" id="pdf-categoria">
+                <option value="">Nenhuma Categoria</option>
+            </select>
+            <input type="submit" value="Salvar PDF">
         </form>
     </div>
 </div>
 
-<script src="../backend/requests/setCategorias.js"></script>    
-<script src="../backend/requests/getCategorias.js"></script>  
-
-
 <script>
-     $('.categoria-container').hide();
-    $('#close-categoria').click(function(){
-        $('.categoria-container').fadeOut('slow');
+
+var inputFile = document.getElementById('pdf-file');
+var nomeInput = document.getElementById('nome-pdf');
+var labelArquivo = document.querySelector('.add-label');
+
+// Ouve o evento de mudança no input de arquivo
+inputFile.addEventListener('change', function(event) {
+  // Obtém o nome do arquivo selecionado
+  var nomeArquivo = event.target.files[0].name;
+
+  // Atualiza o texto da label com o nome do arquivo
+  labelArquivo.textContent = nomeArquivo;
+
+  // Verifica se o campo de texto está vazio
+  if (nomeInput.value.trim() === '' && nomeArquivo !== '') {
+    // Se estiver vazio e o nome do arquivo não for vazio, preenche-o com o nome do arquivo
+    nomeInput.value = nomeArquivo;
+  }
+});
+
+
+    $('.edit-container').hide();
+    $('#close-edit').click(function(){
+        $('.edit-container').fadeOut('slow');
     })
 </script>
