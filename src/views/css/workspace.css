@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.menu-lateral {
+    width: 300px;
+    height: 100%;
+    background-color: #4287f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    color: #fff;
+}
+
+.user-perfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #1b61d1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.button button {
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #1b61d1;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.content {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.categoria-header {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.categoria-header .cat-label{
+    display: flex;
+    gap: 1rem;
+}
+
+.cat-label label{
+    padding: 0.5rem;
+    border: 1px solid #1b61d1;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.cat-label label:hover{
+    background-color:  #1b61d1;
+    color: #fff;
+}
+
+.active{
+    background-color:  #1b61d1;
+    color: #fff;
+}
+.title{
+    color:#1b61d1;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.pdf-content{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pdf-list{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
+}
+.pdf-card{
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pdf_title{
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 100%;
+    word-break: break-all;
+    text-align: center;
+}
+.pdf-icon{
+    font-size: 4rem;
+}
+
+.data{
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #7a7979;
+}

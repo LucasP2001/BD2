@@ -65,5 +65,9 @@
     cursor: pointer; 
 }
 
+.pdf-card{
+    width: 200px;
+    background-color:red;
+}
 
 
