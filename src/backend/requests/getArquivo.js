@@ -35,6 +35,7 @@ function getInfoArquivos() {
                  '<p class="pdf_title">'+response[i].nome+'</p>'+
                  ' <p class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
                  '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
+                 //'<a href="../backend/controllers/removerPDF.php?id='+response[i].id+'">Remover PDF</a>'+
                  ' </div>'+
                 '</div>');
            }
