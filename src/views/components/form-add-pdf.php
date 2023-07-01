@@ -76,7 +76,7 @@
         <button class="close-btn" id="close-pdf"> <i class='bx bx-x' ></i></button>
         <p>Adicionar PDF</p>
         <form action="" id="form-add-pdf"> 
-            <input type="text" placeholder="Digite o titulo do PDF">
+            <input type="text" placeholder="Digite o titulo do PDF" id="titulo-pdf">
             <label for="pdf-file" class="add-label">Adicionar Arquivo</label>
             <input type="file" name="" id="pdf-file">
             <label for="">Categoria</label>
