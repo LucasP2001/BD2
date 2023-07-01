@@ -71,16 +71,22 @@
         background: 0;
     }
 </style>
+
+<script src="../backend/requests/setArquivos.js"></script>  
+<script src="../backend/requests/getCategorias.js"></script>    
+
 <div class="pdf-container">
     <div class="form-content">
         <button class="close-btn" id="close-pdf"> <i class='bx bx-x' ></i></button>
         <p>Adicionar PDF</p>
-        <form action="" id="form-add-pdf"> 
-            <input type="text" placeholder="Digite o titulo do PDF">
+        
+        
+        <form method="POST" id="form-add-pdf" enctype="multipart/form-data"> 
+           <input type="text" name="nome"  id="nome-pdf"placeholder="Digite o titulo do PDF">
             <label for="pdf-file" class="add-label">Adicionar Arquivo</label>
-            <input type="file" name="" id="pdf-file">
+            <input type="file" name="arquivo" id="pdf-file">
             <label for="">Categoria</label>
-            <select name="" id="pdf-categoria">
+            <select name="categoria" id="pdf-categoria">
                 <option value="">Nenhuma Categoria</option>
             </select>
             <input type="submit" value="Salvar PDF">
@@ -89,6 +95,27 @@
 </div>
 
 <script>
+
+var inputFile = document.getElementById('pdf-file');
+var nomeInput = document.getElementById('nome-pdf');
+var labelArquivo = document.querySelector('.add-label');
+
+// Ouve o evento de mudança no input de arquivo
+inputFile.addEventListener('change', function(event) {
+  // Obtém o nome do arquivo selecionado
+  var nomeArquivo = event.target.files[0].name;
+
+  // Atualiza o texto da label com o nome do arquivo
+  labelArquivo.textContent = nomeArquivo;
+
+  // Verifica se o campo de texto está vazio
+  if (nomeInput.value.trim() === '' && nomeArquivo !== '') {
+    // Se estiver vazio e o nome do arquivo não for vazio, preenche-o com o nome do arquivo
+    nomeInput.value = nomeArquivo;
+  }
+});
+
+
      $('.pdf-container').hide();
     $('#close-pdf').click(function(){
         $('.pdf-container').fadeOut('slow');

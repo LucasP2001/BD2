@@ -76,11 +76,15 @@
         <button class="close-btn" id="close-categoria"> <i class='bx bx-x' ></i></button>
         <p>Adicionar Categoria</p>
         <form action="" id="form-add-categoria"> 
-            <input type="text" placeholder="Digite o titulo da Categoria">
+            <input type="text" name="nome" placeholder="Digite o titulo da Categoria">
             <input type="submit" value="Salvar Categoria">
         </form>
     </div>
 </div>
+
+<script src="../backend/requests/setCategorias.js"></script>    
+<script src="../backend/requests/getCategorias.js"></script>  
+
 
 <script>
      $('.categoria-container').hide();

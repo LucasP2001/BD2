@@ -10,6 +10,7 @@ function getInfoArquivos() {
     }   
 
     var dadosJson = JSON.stringify(dados);
+    $('#list-pdf').empty();
 
     $.ajax({
         url: '../backend/controllers/getArquivos.php',
@@ -23,13 +24,18 @@ function getInfoArquivos() {
 
 
             var length = response.length;
+           
 
            for (var i = 0; i < length; i++) {
                 
 
-                $('#ind').append(''+
-                '<p>Nome do PDF: '+response[i].nome+'</p>' +
-                '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
+                $('#list-pdf').append(''+
+                 '<div class="pdf-card">'+
+                 '<i class="bx bxs-file-pdf pdf-icon"></i>'+
+                 '<p class="pdf_title">'+response[i].nome+'</p>'+
+                 ' <p class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
+                 '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
+                 ' </div>'+
                 '</div>');
            }
 

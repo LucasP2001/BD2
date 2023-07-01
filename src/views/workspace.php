@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+session_start();
+$userId = $_SESSION['user_id'];  
+$userName = $_SESSION['user_name'];  
+$Letra = substr($userName, 0, 1);
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +24,9 @@
     <div class="container">
         <div class="menu-lateral">
             <div class="user-info">
-                <p class="user-perfil">D</p>
-                <p>Bem Vindo, Djhérondhy</p>
+                <p class="user-perfil"><?php echo $Letra; ?></p>
+                
+                <p>Bem Vindo, <?php echo $userName; ?></p>
             </div>
             <div class="button">
                 <button id="add-categoria">
@@ -32,15 +40,13 @@
         <div class="content">
             <div class="categoria-header">
                 <p class="title">Categorias</p>
-                <div class="cat-label">
-                    <label for="" class="active">Todos</label>
-                    <label for="">Exemplo 1</label>
-                    <label for="">Exemplo 2</label>
+                <div class="cat-label" id="categorias-label">
+                    <label for=""class="active">Todos</label>
                 </div>
             </div>
             <div class="pdf-content">
                 <p class="title">Lista de PDF</p>
-                <div class="pdf-list">
+                <div class="pdf-list" id="list-pdf">
                     <div class="pdf-card">
                         <i class="bx bxs-file-pdf pdf-icon"></i>
                         <p class="pdf_title">Banco de Dados PDF</p>
@@ -62,6 +68,8 @@
             </div>
         </div>
     </div>
+    <script src="../backend/requests/getArquivo.js"></script>
+    
 
     <script>
         $('#add-categoria').click(function () {

@@ -1,9 +1,4 @@
-<?php
-use Symfony\Component\Console\Output\ConsoleOutput;
-    session_name('user');
-    session_start();
-    header("Access-Control-Allow-Origin: *");
-    
+<?php    
     $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
      
     if(isset($_GET['type'])){
@@ -26,11 +21,12 @@ use Symfony\Component\Console\Output\ConsoleOutput;
             $numero_id = substr($document->_id, 0, 24);
         // Comparar a senha fornecida com a senha armazenada (você pode usar uma função de hash para armazenar as senhas com segurança)
         if ($document->senha == $senha) {
-            
-            $_SESSION['active'] = 1;
+            session_start();
             $_SESSION['user_id'] = $numero_id;
+            $_SESSION['user_name'] = $document->nome;
+
           
-           header('Location: ../../views/workspace.php');
+          header('Location: ../../views/workspace.php');
         } else {
           header('Location: ../../views/login.php?invalid=1');
         }
