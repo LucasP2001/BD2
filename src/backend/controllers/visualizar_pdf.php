@@ -18,7 +18,7 @@ function abrirArquivoPDF($idArquivo) {
 
             // Configurar os cabeçalhos para o navegador reconhecer o conteúdo como um PDF
             header('Content-Type: application/pdf');
-            header('Content-Disposition: inline; filename="arquivo.pdf"');
+            header('Content-Disposition: inline; filename='.$documento->nome.'');
 
             // Exibir o conteúdo do arquivo PDF
             echo $arquivoBinario;

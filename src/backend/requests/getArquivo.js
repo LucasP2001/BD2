@@ -34,11 +34,16 @@ function getInfoArquivos() {
                  '<i class="bx bxs-file-pdf pdf-icon"></i>'+
                  '<p class="pdf_title">'+response[i].nome+'</p>'+
                  ' <p class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
+<<<<<<< HEAD
                  '<div class="pdf-action">'+
                  '<button onclick="verPdf('+response[i].id+')"><i class="bx bx-book-open"></i></button>'+
                  '<button onclick=""><i class="bx bxs-edit"></i></button>'+
                  '<button><i class="bx bxs-trash-alt"></i></button>'+
                  '</div>'+
+=======
+                 '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
+                 //'<a href="../backend/controllers/removerPDF.php?id='+response[i].id+'">Remover PDF</a>'+
+>>>>>>> 7732916ac9652c99c535bfb79e609061ca9605d5
                  ' </div>'+
                 '</div>');
            }
