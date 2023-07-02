@@ -1,5 +1,6 @@
 <style>
     .categoria-container {
+        backdrop-filter: blur(1px);
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -71,7 +72,7 @@
         background: 0;
     }
 </style>
-<div class="categoria-container">
+<div class="categoria-container" id="add_categorias">
     <div class="form-content">
         <button class="close-btn" id="close-categoria"> <i class='bx bx-x' ></i></button>
         <p>Adicionar Categoria</p>
@@ -82,13 +83,10 @@
     </div>
 </div>
 
-<script src="../backend/requests/setCategorias.js"></script>    
-<script src="../backend/requests/getCategorias.js"></script>  
-
 
 <script>
-     $('.categoria-container').hide();
+     $('#add_categorias').hide();
     $('#close-categoria').click(function(){
-        $('.categoria-container').fadeOut('slow');
+        $('#add_categorias').fadeOut('slow');
     })
 </script>

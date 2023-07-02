@@ -1,10 +1,9 @@
 
 
 
-
 //FUNÇÃO PARA MOSTRAS OS PEDIDOS EM ENTREGA
 function getCategorias() {
-    
+    $('#add_categorias').fadeOut('slow');
     var dados = {
         collection: 'Categorias',
     }   
@@ -27,6 +26,12 @@ function getCategorias() {
             '<option value="">Nenhuma Categoria</option>'+
             '</div>');
 
+            $('#pdf-categoria-editar').empty();
+            $('#pdf-categoria-editar').append(''+
+            '<option value="">Nenhuma Categoria</option>'+
+            '</div>');
+
+
             $('#categorias-label').empty();
             $('#categorias-label').append(''+
             '<label onclick="todos()" class="active">Todos</label>'+
@@ -47,6 +52,12 @@ function getCategorias() {
                 '<label onclick="MostrarCategoria(\''+response[i].id+'\')" data-id="'+response[i].id+'">'+response[i].nome+'</label>'+
                 '</div>');
 
+                //lista de Categorias editar
+                $('#pdf-categoria-editar').append(''+
+                '<option value="'+response[i].id+'">'+response[i].nome+'</option>'+
+                '</div>');
+
+
                 
 
            }
@@ -62,6 +73,7 @@ function todos(){
     getCategorias();
     getInfoArquivos();
 }
+
 
 
 
@@ -97,16 +109,24 @@ function MostrarCategoria(id_categoria){
 
              $('#list-pdf').append(''+
              '<div class="pdf-card">'+
-             '<i class="bx bxs-file-pdf pdf-icon"></i>'+
-             '<p class="pdf_title">'+response[i].nome+'</p>'+
-             ' <p class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
-             '<a href="../backend/controllers/visualizar_pdf.php?id='+response[i].id+'">Abrir PDF</a>'+
-             ' </div>'+
+             '<i onclick="verPdf(\''+response[i].id+'\')" class="bx bxs-file-pdf pdf-icon"></i>'+
+             '<p onclick="verPdf(\''+response[i].id+'\')" class="pdf_title">'+response[i].nome+'</p>'+
+             '<p  onclick="verPdf(\''+response[i].id+'\')"class="data"><i class="bx bx-calendar"></i>'+response[i].data+'</p>'+
+             
+             '<div  id="pdfaction">'+
+                 '<button onclick="verPdf(\''+response[i].id+'\')"><i class="bx bx-book-open"></i></button>'+
+                 '<button id="edits" onclick="editarPdf(\'' + response[i].id + '\', \'' + response[i].nome + '\', \'' + response[i].categoria + '\')"><i class="bx bxs-edit"></i></button>'+
+                 '<button onclick="exibirConfirmacaoRemocao(\''+response[i].id+'\', \'' + response[i].nome + '\')"><i class="bx bxs-trash-alt"></i></button>'+
+                 '</div>'+
             '</div>');
+
+
 
             }
     }
     });
+
+    
 
                  
 }

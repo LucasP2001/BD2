@@ -12,12 +12,14 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(response) {
-                alert(response);
+               
+                exibirMensagem('Arquivo Adicionado com Sucesso!');
                 getInfoArquivos();
             },
             error: function() {
-                alert('Ocorreu um erro durante o upload do arquivo.');
+                exibirMensagem('Erro ao adicionar arquivo!');
             }
         });
+        $('#pfdadd').fadeOut('slow');
     });
 });

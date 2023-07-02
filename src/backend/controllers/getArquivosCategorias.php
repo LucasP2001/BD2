@@ -40,7 +40,8 @@ foreach ($resultSet as $document) {
         'id'=> $numero_id,
         'nome' => $document->nome,
         'tamanho' => $document->tamanho,
-        'data' => $document->data
+        'data' => $document->data,
+        'categoria'=> $document->categoria
         // Adicione outros campos do documento conforme necessário
     ];
     $files[] = $file;

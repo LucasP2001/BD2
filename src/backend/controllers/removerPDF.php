@@ -16,10 +16,14 @@ function removerDocumento($filtro) {
 
     // Verificar se a operação de remoção foi bem-sucedida
     if ($result->getDeletedCount() > 0) {
-        echo "Documento removido com sucesso.";
+        session_start();
+        $_SESSION['remove']=1;  
+        header('Location: ../../views/workspace.php');
+        
     } else {
         echo "Nenhum documento foi removido.";
     }
+    
 }
 
 
@@ -27,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id'])) {
         $idArquivo = new ObjectId($_GET['id']);
         $filtro = ['_id' => $idArquivo];
-        echo $idArquivo;
         removerDocumento($filtro);
         
     }

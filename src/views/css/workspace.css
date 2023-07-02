@@ -16,6 +16,7 @@
     background-color: #4287f5;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .user-info {
@@ -24,6 +25,7 @@
     gap: 0.5rem;
     padding: 1rem;
     color: #fff;
+    align-self: flex-start;
 }
 
 .user-perfil {
@@ -57,6 +59,18 @@
     justify-content: center;
     display: flex;
     gap: 0.5rem;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    padding: 0.3rem;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #f5a142;
+    cursor: pointer;
+    border: 0;
 }
 
 .content {
@@ -134,7 +148,9 @@
 }
 .pdf-card{
     width: 200px;
+    height: 170px;
     border-radius: 10px;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -153,7 +169,17 @@
     font-size: 4rem;
 }
 
-.pdf-action button{
+#pdfaction {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    align-self:center;
+    justify-content: space-around;
+    width: 55%;
+
+}
+
+#pdfaction button{
     width: 30px;
     height: 30px;
     background-color:  #4287f5;

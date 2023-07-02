@@ -1,6 +1,6 @@
 <style>
-    .edit-container {
-         backdrop-filter: blur(1px);
+    .gerenciar-categoria-container {
+        backdrop-filter: blur(1px);
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -43,26 +43,28 @@
         border: 0;
         cursor: pointer;
     }
-    .form-content input[type="file"]{
+
+    .form-content input[type="file"] {
         display: none;
     }
 
-    .add-label{
+    .add-label {
         border: 3px dashed #ccc;
         border-radius: 10px;
         height: 100px;
         display: flex;
         align-items: center;
-        justify-content:center;
+        justify-content: center;
         cursor: pointer;
     }
-    select{
+
+    select {
         padding: 0.5rem;
         border-radius: 6px;
         border: 1px solid #ccc;
     }
 
-    .close-btn{
+    .close-btn {
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -72,33 +74,21 @@
         background: 0;
     }
 </style>
-
-
-
-<div class="edit-container">
+<div class="gerenciar-categoria-container" id="gerenciar_categorias">
     <div class="form-content">
-        <button class="close-btn" id="close-edit"> <i class='bx bx-x' ></i></button>
-        <p>Editar PDF</p>
-        
-        
-        <form method="POST" id="form-edit-pdf" enctype="multipart/form-data"> 
-           <input type="text" name="nome" value="" id="nome-pdff"placeholder="Digite o titulo do PDF">
-            <label for="">Categoria</label>
-            <select name="categoria" id="pdf-categoria-editar">
-                <option value="">Nenhuma Categoria</option>
-            </select>
-            <input type="submit" value="Salvar PDF" id="salvaredit">
+        <button class="close-btn" id="close-edit-gerenciar"> <i class='bx bx-x'></i></button>
+        <p>Alterar Categoria</p>
+        <form action="" id="form-edit-categoria">
+            <input type="text" name="edit-nome" placeholder="Digite o titulo da Categoria">
+            <input type="submit" value="Salvar Categoria">
         </form>
     </div>
 </div>
 
 
 <script>
-
-    $('.edit-container').hide();
-    $('#close-edit').click(function(){
-        $('.edit-container').fadeOut('slow');
-        getInfoArquivos();
-        getCategorias();
+    $('.gerenciar-categoria-container').hide();
+    $('#close-edit-gerenciar').click(function () {
+        $('.gerenciar-categoria-container').fadeOut('slow');
     })
 </script>

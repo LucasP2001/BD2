@@ -4,7 +4,7 @@
 </head>
 
 <style>
-    .popup{
+  .popup{
     width: 300px;
     padding: 1rem;
     background: white;
@@ -18,9 +18,10 @@
     left: 1rem;
     z-index: 4000;
     font-family: 'Inter', sans-serif;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
     
     }
 
@@ -55,28 +56,33 @@
         color: var(--main-color);
     }
 </style>
-<div class="popup">
-<i class='bx bxs-note'></i>
-    <p id="pop mensagem" class="popup-message">
-   
-    <?php 
-        if(isset($_GET['user'])){
-            echo 'Seu cadastro foi realizado com sucesso!';
-        }
-        if(isset($_GET['invalid'])){
-            echo 'Usuário ou Senha Incorretos!';
-        }
-     
-    ?>
-    </p>
-    <button class="close-popup" onclick="closePopup()"><i class='bx bx-x'></i></button>
+
+<div id="caixaMensagem" class="popup">
+    <i class='bx bxs-note'></i>
+    <p id="mensagemTexto" class="popup-message"></p>
+    <button class="close-popup" onclick="fecharMensagem()"><i class='bx bx-x'></i></button>
 </div>
+
+
+<script src="../backend/requests/setCategorias.js"></script>    
+<script src="../backend/requests/getArquivos.js"></script>    
 
 <script>
 
     
-    $('.close-popup').click(function(){
-        $('.popup').fadeOut('slow');
-    })
+function exibirMensagem(mensagem) {
+  var mensagemTexto = document.getElementById('mensagemTexto');
+  mensagemTexto.textContent = mensagem;
+
+  var caixaMensagem = document.getElementById('caixaMensagem');
+  caixaMensagem.style.display = 'flex';
+  $('#pfdadd').fadeOut('slow');
+}
+
+function fecharMensagem() {
+  var caixaMensagem = document.getElementById('caixaMensagem');
+  caixaMensagem.style.display = 'none';
+}
+
     
 </script>
