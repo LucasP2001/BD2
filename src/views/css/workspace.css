@@ -64,6 +64,7 @@
 .logout{
     position: absolute;
     bottom: 0;
+    margin-bottom: 15px ;
     width: 150px;
     padding: 0.3rem;
     border-radius: 6px;
@@ -159,11 +160,22 @@
 }
 
 .pdf_title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden; /* Oculta o conteúdo excedente */
+    text-overflow: ellipsis;
     font-weight: bold;
     font-size: 0.9rem;
     width: 100%;
     word-break: break-all;
     text-align: center;
+    
+}
+.pdf_title:hover {
+    -webkit-line-clamp: initial; /* Mostra todas as linhas */
+    overflow: visible; /* Permite que o conteúdo completo seja visível */
+    white-space: normal; /* Remove a quebra de linha */
 }
 .pdf-icon{
     font-size: 4rem;

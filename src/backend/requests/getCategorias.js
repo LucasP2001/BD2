@@ -21,20 +21,28 @@ function getCategorias() {
         success: function (response) {
             console.log(response);
 
+            //lista de categorias inserir pdf
             $('#pdf-categoria').empty();
             $('#pdf-categoria').append(''+
             '<option value="">Nenhuma Categoria</option>'+
             '</div>');
 
+               //lista de Categorias editar
             $('#pdf-categoria-editar').empty();
             $('#pdf-categoria-editar').append(''+
             '<option value="">Nenhuma Categoria</option>'+
             '</div>');
 
-
+               //lista de Categorias Topbar
             $('#categorias-label').empty();
             $('#categorias-label').append(''+
             '<label onclick="todos()" class="active">Todos</label>'+
+            '</div>');
+            
+             //lista cetegorias gerenciador de categorias
+            $('#categoria-editar').empty();
+            $('#categoria-editar').append(''+
+            '<option value="">Nenhuma Categoria</option>'+
             '</div>');
 
             var length = response.length;
@@ -57,10 +65,15 @@ function getCategorias() {
                 '<option value="'+response[i].id+'">'+response[i].nome+'</option>'+
                 '</div>');
 
-
-                
+                 //lista cetegorias gerenciador de categorias
+                $('#categoria-editar').append(''+
+                '<option value="'+response[i].id+'">'+response[i].nome+'</option>'+
+                '</div>');
 
            }
+
+
+             
           
 
         }
@@ -73,6 +86,7 @@ function todos(){
     getCategorias();
     getInfoArquivos();
 }
+
 
 
 

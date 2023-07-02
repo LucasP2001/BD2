@@ -71,6 +71,8 @@
         cursor: pointer;
         background: 0;
     }
+
+    
 </style>
 <div class="categoria-container" id="add_categorias">
     <div class="form-content">

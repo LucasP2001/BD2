@@ -14,6 +14,7 @@ $userId = $_SESSION['user_id'];
 $userName = $_SESSION['user_name'];
 $Letra = substr($userName, 0, 1);
 $remove = $_SESSION['remove'];
+$removeC = $_SESSION['removeC']
 ?>
 
 <head>
@@ -33,7 +34,6 @@ $remove = $_SESSION['remove'];
     <?php include "components/confirm.php" ?>
     <?php include "components/form-add-pdf.php" ?>
     <?php include "components/form-add-categoria.php" ?>
-    <?php include "components/form-edit-categoria.php" ?>
     <?php include "components/form-edit-pdf.php" ?>
     <?php include "components/gerenciar-categorias.php" ?>
 
@@ -121,15 +121,20 @@ $remove = $_SESSION['remove'];
         $('#gerenciar-categoria').click(function () {
             $('.gerenciar-container').fadeIn('slow')
         })
-
+        
     </script>
 </body>
 
 <?php if ($remove == 1) {
     echo " <script>  exibirMensagem('Arquivo Removido com Sucesso!'); </script>";
-    session_start();
     $_SESSION['remove'] = 0;
     $remove = 0;
+   
+}
+if ($removeC == 1) {
+    echo " <script>  exibirMensagem('Categoria Removida com Sucesso!'); </script>";
+    $_SESSION['removeC'] = 0;
+    $removeC = 0;
 }
 ?>
 

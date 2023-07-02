@@ -54,7 +54,7 @@ function getInfoArquivos() {
 
 function arquivoPesquisar(nome){
 
-  
+    getCategorias();
     var dados = {
         collection: 'Arquivos',
         nome_pdf: nome 

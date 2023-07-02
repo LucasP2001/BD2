@@ -74,7 +74,7 @@
   document.getElementById('sim').addEventListener('click', minhaFuncao);
 
   function minhaFuncao() {
-    exibirMensagem('Arquivo Removido com Sucesso!');
+  
     window.location.href= "../backend/controllers/removerPDF.php?id="+_id;
 }
 
