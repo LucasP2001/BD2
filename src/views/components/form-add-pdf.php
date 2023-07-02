@@ -1,5 +1,6 @@
 <style>
     .pdf-container {
+        backdrop-filter: blur(1px);
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -72,10 +73,11 @@
     }
 </style>
 
-<script src="../backend/requests/setArquivos.js"></script>  
-<script src="../backend/requests/getCategorias.js"></script>    
+  
+<script src="../backend/requests/setArquivos.js"></script>    
 
-<div class="pdf-container">
+
+<div id="pfdadd" class="pdf-container">
     <div class="form-content">
         <button class="close-btn" id="close-pdf"> <i class='bx bx-x' ></i></button>
         <p>Adicionar PDF</p>

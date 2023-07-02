@@ -9,9 +9,9 @@ $data = json_decode($dadosJson, true);
 
 //coleção
 $collection =  $data['collection'];
+$nome = $data['nome_pdf'];
 
-//id do aluno que eu quero "aluno"=>"649999dd075915e4c90fca77"
-$filtro = [];
+$filtro = ['nome' => ['$regex' => '^' . preg_quote($nome), '$options' => 'i']];
 
 
 // Defina a consulta para obter os arquivos desejados

@@ -24,6 +24,7 @@
             session_start();
             $_SESSION['user_id'] = $numero_id;
             $_SESSION['user_name'] = $document->nome;
+            $_SESSION['remove'] =0;
 
           
           header('Location: ../../views/workspace.php');

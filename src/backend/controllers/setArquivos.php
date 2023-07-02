@@ -32,9 +32,9 @@ function inserirArquivo($nomeArquivo, $caminhoArquivo,$categoriaArquivo,$dataUpl
     $resultados = $mongo->executeBulkWrite('TrabalhoBD2.Arquivos', $insercao);
 
     if ($resultados->getInsertedCount() > 0) {
-        echo "Arquivo inserido com sucesso.";
+        
     } else {
-        echo "Falha ao inserir o arquivo.";
+        
     }
 }
 
