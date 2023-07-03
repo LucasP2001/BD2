@@ -104,7 +104,8 @@ function MostrarCategoria(id_categoria){
  
     
     var dadosJson = JSON.stringify(dados);
-    $('#list-pdf').empty();
+   
+  
             
     $.ajax({
         url: '../backend/controllers/getArquivosCategorias.php',
@@ -115,10 +116,10 @@ function MostrarCategoria(id_categoria){
         dataType: 'json',
         success: function (response) {
             console.log(response);
-
+           
            
             var length = response.length;
-
+            $('#list-pdf').empty();
             for (var i = 0; i < length; i++) {
 
              $('#list-pdf').append(''+
@@ -139,6 +140,7 @@ function MostrarCategoria(id_categoria){
             }
     }
     });
+
 
     
 

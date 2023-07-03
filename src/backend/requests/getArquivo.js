@@ -10,7 +10,7 @@ function getInfoArquivos() {
     }   
 
     var dadosJson = JSON.stringify(dados);
-    $('#list-pdf').empty();
+    
 
     $.ajax({
         url: '../backend/controllers/getArquivos.php',
@@ -21,10 +21,11 @@ function getInfoArquivos() {
         dataType: 'json',
         success: function (response) {
             console.log(response);
-
+           $('#list-pdf').empty();
+    
 
             var length = response.length;
-           
+            
 
            for (var i = 0; i < length; i++) {
                 
@@ -76,10 +77,10 @@ function arquivoPesquisar(nome){
 
             var length = response.length;
            
-
+        
            for (var i = 0; i < length; i++) {
                 
-
+         
                 $('#list-pdf').append(''+
                 '<div class="pdf-card">'+
                 '<i onclick="verPdf(\''+response[i].id+'\')" class="bx bxs-file-pdf pdf-icon"></i>'+
@@ -152,7 +153,7 @@ function editarPdf(id, nome, categoria){
         var formulario = document.getElementById('form-edit-pdf');
         formulario.addEventListener('submit', function(event) {
        
-            event.preventDefault(); 
+      event.preventDefault(); 
     
         var nome_novo = formulario.elements.nome.value;
         var categoria_nova = formulario.elements.categoria.value;
@@ -173,17 +174,17 @@ function editarPdf(id, nome, categoria){
             },
             dataType: 'json',
             success: function (response) {
-            
+               
               
+        
             }
         });
+
         $('.edit-container').fadeOut('slow');
-        
-        getInfoArquivos();
-
         $('#add_categorias').fadeOut('slow');
-        exibirMensagem('Arquivo Atualizado com Sucesso!');
-
+        window.location.href= "../views/workspace.php";
+        
+       
   });
     
 }

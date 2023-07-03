@@ -26,7 +26,7 @@
             $_SESSION['user_name'] = $document->nome;
             $_SESSION['remove'] =0;
             $_SESSION['removeC'] =0;
-            $_SESSION['updateC'] =0;
+            $_SESSION['updateA'] =0;
           
           header('Location: ../../views/workspace.php');
         } else {

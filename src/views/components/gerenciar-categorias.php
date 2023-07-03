@@ -205,13 +205,16 @@
         var id_categoria = bnt_edit.value;
 
          if(id_categoria != ""){
-            $('.gerenciar-container').fadeOut('slow');
+         $('.gerenciar-container').fadeOut('slow');
          $('.gerenciar-categoria-container').fadeIn('slow');
-
+         
+         var nome_categoria =document.getElementById('nome-novoC');
+         nome_categoria.value = bnt_edit.options[bnt_edit.selectedIndex].text;
+         
          document.getElementById('form-edit-categoria').addEventListener('submit', function(event) { 
          event.preventDefault(); 
-         
-         var nome_novo = document.getElementById('nome-novoC').value;
+
+         var nome_novo = nome_categoria.value;
         
          var dados = {
             _id: id_categoria,

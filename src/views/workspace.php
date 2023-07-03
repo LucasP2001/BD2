@@ -14,7 +14,8 @@ $userId = $_SESSION['user_id'];
 $userName = $_SESSION['user_name'];
 $Letra = substr($userName, 0, 1);
 $remove = $_SESSION['remove'];
-$removeC = $_SESSION['removeC']
+$remove = $_SESSION['removeC'];
+$updateA = $_SESSION['updateA'];
 ?>
 
 <head>
@@ -76,25 +77,7 @@ $removeC = $_SESSION['removeC']
                     <button onclick=" pesquisar()"><i class='bx bx-search'></i></button>
                 </div>
                 <div class="pdf-list" id="list-pdf">
-                    <div class="pdf-card">
-                        <i class="bx bxs-file-pdf pdf-icon"></i>
-                        <p class="pdf_title">Banco de Dados PDF</p>
-                        <p class="data"><i class="bx bx-calendar"></i>2023-06-30</p>
-                    </div>
-                    <div class="pdf-card">
-                        <i class="bx bxs-file-pdf pdf-icon"></i>
-                        <p class="pdf_title">Mongo DB</p>
-                        <p class="data"><i class="bx bx-calendar"></i>2023-06-30</p>
-                    </div>
-                    <div class="pdf-card">
-                        <i class="bx bxs-file-pdf pdf-icon"></i>
-                        <p class="pdf_title">Senhor dos Anéis</p>
-                        <p class="data"><i class="bx bx-calendar"></i>2023-06-30</p>
-                        <div id="pdfaction">
-                            <button onclick="window.location.href='login.php'"><i class="bx bx-book-open"></i></button>
-                            <button onclick=""><i class="bx bxs-edit"></i></button>
-                            <button><i class="bx bxs-trash-alt"></i></button>
-                        </div>
+                   
                     </div>
 
 
@@ -134,6 +117,11 @@ $removeC = $_SESSION['removeC']
 if ($removeC == 1) {
     echo " <script>  exibirMensagem('Categoria Removida com Sucesso!'); </script>";
     $_SESSION['removeC'] = 0;
+    $removeC = 0;
+}
+if ($updateA == 1) {
+    echo " <script>  exibirMensagem('Arquivo atualizado com Sucesso!'); </script>";
+    $_SESSION['updateA'] = 0;
     $removeC = 0;
 }
 ?>

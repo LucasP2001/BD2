@@ -19,16 +19,18 @@ function atualizarDocumento($filtro, $atualizacao) {
     // Preparar a operação de atualização
     $bulk = new MongoDB\Driver\BulkWrite;
     $bulk->update($filtro, $atualizacao);
-
+   
     // Executar a operação de atualização
     $result = $mongo->executeBulkWrite('TrabalhoBD2.Arquivos', $bulk);
 
     // Verificar se a operação de atualização foi bem-sucedida
     if ($result->getModifiedCount() > 0) {
-        echo "Documento atualizado com sucesso.";
+        session_start();
+        $_SESSION['updateA']=1;  
     } else {
         echo "Nenhum documento foi atualizado.";
     }
+   
 }
 
 // Exemplo de uso da função para atualizar o documento com nome "João"
@@ -37,4 +39,5 @@ $filtro = ['_id' => $_id];
 $atualizacao = ['$set' => ['nome' => $nome, 'categoria' => $categoria]];
 
 atualizarDocumento($filtro, $atualizacao);
+
 ?>

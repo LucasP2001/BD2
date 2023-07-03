@@ -29,6 +29,7 @@ function atualizarCategorias($filtro, $atualizacao) {
     } else {
         echo "Nenhum documento foi atualizado.";
     }
+    $filtro = [''];
 }
 
 // Exemplo de uso da função para atualizar o documento com nome "João"
